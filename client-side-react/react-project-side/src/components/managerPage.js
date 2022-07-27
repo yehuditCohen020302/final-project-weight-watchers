@@ -15,12 +15,5 @@ export default function ManagerPage()
         </div>
     )
 }
- /* <div>  <h1>Hello in ManagerPage 😊</h1></div> */
-
-// function componentDidMount() {
-//     axios.get(baseUrl+`users`)
-//     .then(res=> {
-//         const person=res.data;
-//         this.setPersons({person});
-//     });}
+ 
 
