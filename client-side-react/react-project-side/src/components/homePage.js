@@ -4,10 +4,7 @@ import '../css/homePage.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useHistory } from "react-router-dom";
 import {getUserById} from "../api/user"
-import { getUsers } from '../api/manager';
-// const axios = require('axios').default;
-// const url = new URL('http://localhost:3000/')
-
+import { signManager } from '../api/manager';
 
 
 export default function HomePage()  
@@ -21,11 +18,11 @@ export default function HomePage()
 
     async function signInUser(id) {
         await getUserById(id);
-        history.push("/userPage");
+        history.push(`/userPage/:${id}`);
     }
-    function signInManager(email, password) {
+    async function signInManager(email, password) {
         alert("manager details: "+email+" , "+password);
-        
+        await signManager(email,password);
         history.push("/managerPage");
     }
 
@@ -54,7 +51,7 @@ export default function HomePage()
                             <input type="password" className="form-control form-input" id="password" placeholder="Enter the manager password" value={password} onChange={(e)=>setPassword(e.target.value)}></input>
                         </div>
                         <div className="form-group">
-                            <input type="button" className="form-control" id="login" value="Login as a user" onClick={()=>signInManager(email,password)}></input>
+                            <input type="button" className="form-control" id="login" value="Login as a manager" onClick={()=>signInManager(email,password)}></input>
                         </div>
                     </div>
                 </div>
