@@ -5,15 +5,11 @@ import {getUserById} from '../api/user.js'
 
 
 export default function UserPage(){
-    console.log(" in UserPage");
-
     
     const {id} = useParams();
-    console.log(id);
 
     useEffect(() => {
         return () => {
-          console.log("Onload all this UserPage");
           getUserById(id);
         };
       }, []);
