@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import {getUserById} from '../api/user.js'
 
 
-export default function UserPage(){
+export function UserPage(){
     
     const {id} = useParams();
 

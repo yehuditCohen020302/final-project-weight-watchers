@@ -7,7 +7,7 @@ import {getUserById} from "../api/user"
 import { signManager } from '../api/manager';
 
 
-export default function HomePage()  
+export function HomePage()  
 {
     const history = useHistory();
 

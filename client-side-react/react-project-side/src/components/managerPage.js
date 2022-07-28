@@ -1,7 +1,7 @@
 import React from 'react';
 import {getUsers} from "../api/manager"
 
-export default function ManagerPage()
+export function ManagerPage()
 {
     return (
         <div className='containers'>
