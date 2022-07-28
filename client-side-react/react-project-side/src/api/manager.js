@@ -1,45 +1,14 @@
-const baseUrl = "https://pacific-headland-08901.herokuapp.com/";
-
- 
-const getUsers= async ()=> {
-    debugger
-   await fetch(baseUrl+"users")
-      .then((response) => response.json())
-      .then((response) => console.log(response))
-    //    .then((response) => { (usersTo = response)})
-      // .then((response) => drawTable(response))
-      .catch((err) => {
-        console.log(err);
-      });
-
+import React from 'react';
+import axios from 'axios';
+export default async function getUsers() {
+    try {
+      debugger
+      const users= await axios.get('http://localhost:3000/users');
+      console.log(users.length);
+        return users
+    }
+    catch (error) {
+        console.log('error in add user');
+    }
 }
 
-//  function drawTable(users) {
-//     debugger
-//     console.log(users);
-//     const container = document.querySelector(".usersTable");
-//     container.innerHTML = "";
-//     let table = "";
-
-//     users.forEach((user) => {
-//       let bmi =
-//         user.weightsHistory[user.weightsHistory.length - 1].weight /
-//         Math.pow(user.height, 2);
-//       let c = "green";
-//       if (
-//         user.weightsHistory[user.weightsHistory.length - 1].weight >
-//         user.weightsHistory[user.weightsHistory.length - 2].weight
-//       ) {
-//         c = "red";
-//       }
-//       table += `
-//                 <tr>
-//                     <th>${user.firstName + " " + user.lastName}</th>
-//                     <th style="color:${c}">${Math.floor(bmi * 100) / 100}</th>
-//                     <th><a href="../html/userPage.html?userId=${user.id}">details user</a></th>
-//                 </tr>`;
-//     });
-    
-//     container.innerHTML += table;
-// }
-export default getUsers();
