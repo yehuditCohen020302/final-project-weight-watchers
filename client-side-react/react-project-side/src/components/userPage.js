@@ -1,9 +1,25 @@
+import React from 'react';
+import {useEffect} from 'react'
+import { useParams } from 'react-router-dom';
+import {getUserById} from '../api/user.js'
 
 
 export default function UserPage(){
     console.log(" in UserPage");
+
+    
+    const {id} = useParams();
+    console.log(id);
+
+    useEffect(() => {
+        return () => {
+          console.log("Onload all this UserPage");
+          getUserById(id);
+        };
+      }, []);
+
     return(
-        <div>
+        <div className="divContainerUserPage">
             <h3 id="title">User Details:</h3>
             <div id="userDetails" >
                 <label>id</label>

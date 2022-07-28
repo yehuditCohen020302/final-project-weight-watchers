@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+
+/*מכאן אני כתבתי: לא נגעתי בלמעלה*/
+
+.divContainerUserPage{
+  background-color:plum;
+  width: 100%;
+
+}

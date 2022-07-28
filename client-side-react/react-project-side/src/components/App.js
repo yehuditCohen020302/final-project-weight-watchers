@@ -1,21 +1,24 @@
-import '../App.css';
+import '../css/App.css';
 import React from 'react'
-import {
-  BrowserRouter as Router, Route} from 'react-router-dom';
-import ManagerPage from './managerPage'
+import {BrowserRouter as Routes, Route} from 'react-router-dom';
+  import ManagerPage from './managerPage'
 import UserPage from './userPage'
+import HomePage from './homePage';
 
 
 function App() {
   return (
-    <Router>
-        <Route path='/' exact> 
+    <Routes>
+        <Route path='/' exact>
+          <HomePage/>
+        </Route>
+        <Route path='/managerPage'>
           <ManagerPage/>
         </Route>
-        <Route path='/:id' > 
+        <Route path='/:id'> 
           <UserPage/>
         </Route>
-    </Router>
+    </Routes>
   );
 }
 
