@@ -15,7 +15,7 @@ function App() {
         <Route path='/managerPage'>
           <ManagerPage/>
         </Route>
-        <Route path='/:id'> 
+        <Route path='/userPage/:id'> 
           <UserPage/>
         </Route>
     </Routes>
