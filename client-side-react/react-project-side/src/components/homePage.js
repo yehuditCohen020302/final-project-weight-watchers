@@ -18,7 +18,7 @@ export function HomePage()
 
     async function signInUser(id) {
         await getUserById(id);
-        history.push(`/userPage/:${id}`);
+        history.push(`/userPage/${id}`);
     }
     async function signInManager(email, password) {
         alert("manager details: "+email+" , "+password);

@@ -1,18 +1,21 @@
 import React from 'react';
 import {useEffect} from 'react'
-import { useParams } from 'react-router-dom';
+import { useParams , useHistory} from 'react-router-dom';
 import {getUserById} from '../api/user.js'
-
 
 export function UserPage(){
     
     const {id} = useParams();
 
+    const history = useHistory();
+
+    function passDiary(){
+        history.push(`/userPage/${id}/diary`);
+    }
+
     useEffect(() => {
-        return () => {
-          getUserById(id);
-        };
-      }, []);
+         getUserById(id);}
+    );
 
     return(
         <div className="divContainerUserPage">
@@ -48,7 +51,9 @@ export function UserPage(){
                 </table>
                 <label>BMI</label>
                 <input type="number" id="BMI" /><br/>
+                <input type="button" className="btnToDiary" onClick={()=>passDiary()} value="Enter to show your diary"/>
             </div>
         </div>
     )
 }
+
