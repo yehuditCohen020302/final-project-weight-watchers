@@ -34,3 +34,12 @@ function drawUserDetails(currentUser) {
         weightsTable.append(element);
     });
 }
+
+export function getUserDiary(id) {
+  
+  fetch(`${baseUrl}users/${id}/diary`)
+    .then(response => response.json())
+    .then(response=> console.log(response))
+    .catch(error => console.log('error', error));
+  
+}

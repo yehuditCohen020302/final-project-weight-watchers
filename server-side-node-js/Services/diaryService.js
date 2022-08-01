@@ -4,7 +4,8 @@ const diaryModel=require('../Models/diaryModel');
 const userModel=require('../Models/userModel');
 
 module.exports.getUsersDiary=async (userId)=>{
-    const user = await userModel.findById(ObjectId(userId));
+    const uid=ObjectId(userId);
+    const user = await userModel.findById(uid);
     return user.diary;
 }
 
