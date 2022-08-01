@@ -7,7 +7,7 @@ import {getUserById} from "../api/user"
 import { signManager } from '../api/manager';
 
 
-export default function HomePage()  
+export function HomePage()  
 {
     const history = useHistory();
 
@@ -43,6 +43,7 @@ export default function HomePage()
                             <input type="button" className="form-control" id="login" value="Login as a user" onClick={()=>signInUser(id)}></input>
                         </div>
                     </div>
+                    <br/>
                     <div>
                     <div className="form-group">
                             <input type="email" className="form-control form-input" id="email" placeholder="Enter the manager email" value={email} onChange={(e)=>setEmail(e.target.value)}></input>
