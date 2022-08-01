@@ -1,8 +1,9 @@
 import React from 'react';
-import {getUsers} from "../api/manager"
+import {getUsers} from "../api/manager";
 
 export function ManagerPage()
 {
+   
     return (
         <div className='containers'>
             <h1>"Welcome to Manager"</h1>
@@ -11,6 +12,8 @@ export function ManagerPage()
             <div className='div'></div>
         </div>
     )
+    
+    
 }
  
 

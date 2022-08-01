@@ -24,11 +24,11 @@ export function signManager(emailAddress,password){
            .then((response) =>{
                return response.data;
            })
-           .then((data) =>{
-             if(data.id){
-                 window.location.href="http://localhost:3000/users";
-             }
-         })
+        //    .then((data) =>{
+        //      if(data.id!=null){
+        //          window.location.href="http://localhost:3000/users";
+        //      }
+        //  })
            .catch(function (error) {
              return error;
            });
