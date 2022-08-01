@@ -14,9 +14,8 @@ module.exports.getAllUsers= async ()=>{
     },
 
     module.exports.updateUser= async (id,update)=> {
-         const updateUser=
-        await userModel.updateOne({_id:ObjectId(id)},update);
-        return `update user ${updateUser.firstName}`        
+         const updateUser=  await userModel.updateOne({_id:ObjectId(id)},update);
+        return  updateUser;      
     },
 
     module.exports.deleteUser=async(id)=>{

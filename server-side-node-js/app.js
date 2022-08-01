@@ -46,7 +46,7 @@ app.use('/api-docs', swaggerUi.serve,
 app.use((err,req,res,next) => {
   if(process.env.ENVIROMENT== "development")
   logger.error(err.message);
-  res.status(500).send('oooooof Something broke! 😒')
+  res.status(500).send(err.message);
 })
 
 
