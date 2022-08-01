@@ -4,7 +4,7 @@ const userService =require ('../Services/userService');
 const diaryService =require ('../Services/diaryService');
 const userModel=require('../Models/userModel')
 const diaryModel = require('../Models/diaryModel')
-
+const meetingModel = require('../Models/meetingModel')
 module.exports.getAllUsers=async (req,res, next)=>{
     try{
         const toGet = await userService.getAllUsers();
@@ -30,7 +30,7 @@ module.exports.updateUser=async function(req,res, next){
     try{
         const id = req.params.id;
         // ,diary,weightsHistory
-        const {firstName,lastName,city,street,houseNumber,phoneNumber,emailAddress,height}=req.body;
+        const {firstName,lastName,city,street,houseNumber,phoneNumber,emailAddress,height,weightsHistory,diary}=req.body;
         const _user= {$set:{
             id,
             firstName,
@@ -41,8 +41,8 @@ module.exports.updateUser=async function(req,res, next){
             phoneNumber,
             emailAddress,
             height,
-            // weightsHistory,
-            // diary
+             weightsHistory,
+             diary
         }}
         const user= await userService.updateUser(id, _user);
         res.send(user);
