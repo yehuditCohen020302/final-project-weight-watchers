@@ -1,14 +1,19 @@
-import React from 'react';
-import axios from 'axios';
-export default async function getUsers() {
-    try {
-      debugger
-      const users= await axios.get('http://localhost:3000/users');
-      console.log(users.length);
-        return users
-    }
-    catch (error) {
-        console.log('error in add user');
-    }
+const axios = require('axios').default;
+const url = new URL('http://localhost:3000/account/login')
+
+const  getUsers =async()=> {
+    
+ var response= await  fetch(`http://localhost:3000/users`)
+ debugger
+ if(response.status==200&&response.ok) {
+  var data=await response.json()
+ }
+    //   .then((response) => response.json())
+    //   .then((response) => console.log(response))
+    // .catch((err) => {
+    //     console.log(err);
+    //   });
+    return data;
 }
+export default getUsers;
 
