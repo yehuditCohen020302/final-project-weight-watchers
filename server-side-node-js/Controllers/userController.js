@@ -29,7 +29,7 @@ module.exports.getOneUser=async function(req,res, next){
 module.exports.updateUser=async function(req,res, next){
     try{
         const id = req.params.id;
-        // ,diary,weightsHistory
+   
         const {firstName,lastName,city,street,houseNumber,phoneNumber,emailAddress,height,weightsHistory,diary}=req.body;
         const _user= {$set:{
             id,

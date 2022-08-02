@@ -1,38 +1,19 @@
 const axios = require('axios').default;
 const url = new URL('http://localhost:3000/account/login')
 
-export function getUsers() {
+const  getUsers =async()=> {
     
-    fetch(`http://localhost:3000/users`)
-      .then((response) => response.json())
-      .then((response) => console.log(response))
-
-    .catch((err) => {
-        console.log(err);
-      });
+ var response= await  fetch(`http://localhost:3000/users`)
+ debugger
+ if(response.status==200&&response.ok) {
+  var data=await response.json()
+ }
+    //   .then((response) => response.json())
+    //   .then((response) => console.log(response))
+    // .catch((err) => {
+    //     console.log(err);
+    //   });
+    return data;
 }
+export default getUsers;
 
-export function signManager(emailAddress,password){
-     if(emailAddress === '' || password === ''){
-      alert('Please enter a valid email address and password');
-     }
-     else{
-          axios.post(url, {
-            emailAddress:emailAddress,
-            password:password
-           })
-           .then((response) =>{
-               return response.data;
-           })
-        //    .then((data) =>{
-        //      if(data.id!=null){
-        //          window.location.href="http://localhost:3000/users";
-        //      }
-        //  })
-           .catch(function (error) {
-             return error;
-           });
-     }
-     console.log('signed in!')
-
-}

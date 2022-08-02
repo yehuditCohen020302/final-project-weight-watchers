@@ -1,47 +1,80 @@
-let mongoose = require('mongoose');
-const Schema = mongoose.Schema;
- const Meeting=require('./meetingModel');
- const Diary=require('./diaryModel');
+const { type } = require("express/lib/response");
+const { MongoCredentials } = require("mongodb");
+const  Meeting = require('./meetingModel');
+const Diary = require('./diaryModel');
+const mongoose = require("mongoose");
+const Schama = mongoose.Schema;
 
-const userSchema = new mongoose.Schema({
-    id: {
-        type: String
-    },
-    firstName: {
-        type: String
-    },
-    lastName: {
-        type: String
-    },
+const addressSchama = new Schama({
     city: {
-        type: String
+        type: String,
+        min: 3
     },
     street: {
-        type: String
-    },
-    houseNumber: {
-        type: Number
-    },
-    phoneNumber: {
-        type: String
-    },
-    emailAddress: {
         type: String,
-        unique: true,
-        match: [/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/, 'Please fill a valid email address']
     },
-    height: {
+    number: {
+        type: Number,
+        min: 1
+    }
+})
+
+
+const userSchama = new Schama({
+    id:{
         type: Number
     },
-    weightsHistory: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Meeting'
-    }],
-    diary: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Diary'
-    }
+    details: {
+        type: Object,
+        firstName: {
+            type: String,
+            required: true,
+            minlength: 5
+        },
+        lastName: {
+            type: String,
+            required: true,
+            minlength: 5
+        },
+        address: { type: [addressSchama] },
+        phone: {
+            type: String,
+            minlength: 9
+        },
+        email: {
+            type: String,
+            unique: true,
+            required: true
+
+        },
+        hight: {
+            type: Number,
+            required: true,
+            min: 5
+        } 
+        ,
+        meeting: [
+            {
+                
+                id: {
+                    type: mongoose.Schema.Types.ObjectId,
+                    ref: "Meeting"
+                },
+                weight: {
+                    type: Number
+                }
+            }]
+    },
+    diary:[
+        {  
+            id: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Diary"
+            }
+        }]
 }, { timestamps: true })
-// userSchema.set("toObject", { virtuals: true })
-// userSchema.set("toJSON", { virtuals: true })
-module.exports = mongoose.model('User', userSchema)
+
+
+//userSchama.set('toJSON', { virtuals: true })
+
+module.exports = mongoose.model('user', userSchama)
