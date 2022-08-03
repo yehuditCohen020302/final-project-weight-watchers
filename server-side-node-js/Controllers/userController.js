@@ -5,6 +5,9 @@ const diaryService =require ('../Services/diaryService');
 const userModel=require('../Models/userModel')
 const diaryModel = require('../Models/diaryModel')
 const meetingModel = require('../Models/meetingModel')
+const {ObjectId}=require('mongodb');
+
+
 module.exports.getAllUsers=async (req,res, next)=>{
     try{
         const toGet = await userService.getAllUsers();
@@ -28,7 +31,7 @@ module.exports.getOneUser=async function(req,res, next){
 
 module.exports.updateUser=async function(req,res, next){
     try{
-        const id = req.params.id;
+        const id =(req.params.id);
    
         const {firstName,lastName,city,street,houseNumber,phoneNumber,emailAddress,height,weightsHistory,diary}=req.body;
         const _user= {$set:{
