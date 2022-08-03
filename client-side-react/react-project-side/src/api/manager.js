@@ -1,7 +1,7 @@
 const axios = require('axios').default;
 const url = new URL('http://localhost:3000/account/login')
 
-const  getUsers =async()=> {
+export const getUsers =async()=> {
     
  var response= await  fetch(`http://localhost:3000/users`)
  debugger
@@ -15,5 +15,4 @@ const  getUsers =async()=> {
     //   });
     return data;
 }
-export default getUsers;
 
