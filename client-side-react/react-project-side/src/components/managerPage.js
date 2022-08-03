@@ -14,7 +14,7 @@ function createData(firstName, lastName, city, street, number, email, phone, hie
     return { firstName, lastName, city, street, number, email, phone, hieght };
 }
 
-export default function BasicTable() {
+export  function BasicTable() {
 
     const [allUsers, setAllUsers] = useState([]);
     // const [rows, setRows] = useState([]);

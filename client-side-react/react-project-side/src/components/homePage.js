@@ -4,7 +4,7 @@ import '../css/homePage.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useHistory } from "react-router-dom";
 import {getUserById} from "../api/user"
-import { signManager } from '../api/manager';
+import { getUsers, signManager } from '../api/manager';
 
 
 export function HomePage()  
@@ -22,7 +22,8 @@ export function HomePage()
     }
     async function signInManager(email, password) {
         alert("manager details: "+email+" , "+password);
-        await signManager(email,password);
+        // await signManager(email,password);
+        await getUsers();
         history.push("/managerPage");
     }
 

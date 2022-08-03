@@ -1,7 +1,7 @@
 import "../css/App.css";
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import { ManagerPage } from "./managerPage";
+import { BasicTable } from "./managerPage";
 import { UserPage } from "./userPage";
 import { HomePage } from "./homePage";
 import {PrimarySearchAppBar} from "./menu"
@@ -13,7 +13,7 @@ export default function App() {
     <Router> 
         <Route path="" ><PrimarySearchAppBar/></Route>
         <Route path='/' exact> <HomePage/></Route>
-        <Route path='/managerPage' ><ManagerPage/></Route>
+        <Route path='/managerPage' ><BasicTable/></Route>
         <Route path='/userPage/:id' ><UserPage/></Route>
         <Route path='/userPage/:id/diary' ><UserDiary/></Route>
 
