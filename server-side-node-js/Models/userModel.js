@@ -3,9 +3,9 @@ const { MongoCredentials } = require("mongodb");
 const  Meeting = require('./meetingModel');
 const Diary = require('./diaryModel');
 const mongoose = require("mongoose");
-const Schama = mongoose.Schema;
+const Schema = mongoose.Schema;
 
-const addressSchama = new Schama({
+const addressSchema = new Schema({
     city: {
         type: String,
         min: 3
@@ -20,9 +20,9 @@ const addressSchama = new Schama({
 })
 
 
-const userSchama = new Schama({
+const userSchema = new Schema({
     id:{
-        type: Number
+        type: Number,
     },
     details: {
         type: Object,
@@ -36,7 +36,7 @@ const userSchama = new Schama({
             required: true,
             minlength: 5
         },
-        address: { type: [addressSchama] },
+        address: { type: [addressSchema] },
         phone: {
             type: String,
             minlength: 9
@@ -77,4 +77,4 @@ const userSchama = new Schama({
 
 //userSchama.set('toJSON', { virtuals: true })
 
-module.exports = mongoose.model('user', userSchama)
+module.exports = mongoose.model('user', userSchema)
