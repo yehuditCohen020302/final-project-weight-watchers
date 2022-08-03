@@ -21,9 +21,9 @@ const addressSchema = new Schema({
 
 
 const userSchema = new Schema({
-    id:{
-        type: Number,
-    },
+    // id:{
+    //     type: Number,
+    // },
     details: {
         type: Object,
         firstName: {

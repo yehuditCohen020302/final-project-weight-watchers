@@ -4,7 +4,7 @@ import '../css/homePage.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useHistory } from "react-router-dom";
 import {getUserById} from "../api/user"
-import { getUsers, signManager } from '../api/manager';
+import { getUsers } from '../api/manager';
 
 
 export function HomePage()  
