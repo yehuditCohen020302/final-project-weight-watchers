@@ -7,6 +7,9 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import React, { useState, useEffect } from 'react';
+import { useParams , useHistory} from 'react-router-dom';
+
+import { Button } from '@mui/material';
 // import getUsers from "../api/manager"
 // import { ClickAwayListener } from '@mui/material';
 
@@ -15,6 +18,8 @@ function createData(firstName, lastName, city, street, number, email, phone, hie
 }
 
 export  function BasicTable() {
+
+    const history = useHistory();
 
     const [allUsers, setAllUsers] = useState([]);
     // const [rows, setRows] = useState([]);
@@ -34,17 +39,22 @@ export  function BasicTable() {
     console.log(allUsers);
 
     const newRow = []
-    debugger
+  
     allUsers.map((row) => (
         newRow.push(createData(row.firstName, row.lastName, row.city, row.street, row.houseNumber, row.emailAddress, row.phoneNumber, row.height))
     ))
     console.log(newRow)
+
+    function passUser(id){
+        history.push(`/userPage/${id}`);
+    }
 
     return (
         <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
                 <TableHead>
                     <TableRow>
+                    <TableCell align="center"> - </TableCell>
                         <TableCell align="center">firstName</TableCell>
                         <TableCell align="center">lastName</TableCell>
                         <TableCell align="center">city</TableCell>
@@ -63,6 +73,7 @@ export  function BasicTable() {
                             {/* <TableCell component="th" scope="row">
                                 {row.firstName}
                             </TableCell> */}
+                            <Button onClick={()=>passUser(row.id)}>Click to show details</Button>
                             <TableCell align="center">{row.firstName}</TableCell>
                             <TableCell align="center">{row.lastName}</TableCell>
                             <TableCell align="center">{row.city}</TableCell>

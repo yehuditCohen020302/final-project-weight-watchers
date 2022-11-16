@@ -2,6 +2,7 @@ import React from 'react';
 import {useEffect} from 'react'
 import { useParams , useHistory} from 'react-router-dom';
 import {getUserById} from '../api/user.js'
+import { InputLabel,Input, Button } from '@mui/material';
 
 export function UserPage(){
     
@@ -10,7 +11,7 @@ export function UserPage(){
     const history = useHistory();
 
     function passDiary(){
-        history.push(`/userPage/${id}/diary`);
+        history.push(`/${id}/diary`);
     }
 
     useEffect(() => {
@@ -18,40 +19,41 @@ export function UserPage(){
     );
 
     return(
-        <div className="divContainerUserPage">
+        <div >
+        {/* className="divContainerUserPage" */}
             <h3 id="title">User Details:</h3>
-            <div id="userDetails" >
-                <label>id</label>
-                <input className="details" type="text" id="userId" /><br />
-                <label>first Name</label>
-                <input className="details" type="text" id="firstName" /><br />
-                <label>last Name</label>
-                <input className="details" type="text" id="lastName" /><br />
-                <label>city</label>
-                <input className="details" type="text" id="city" /><br />
-                <label>street</label>
-                <input className="details" type="text" id="street" /><br />
-                <label>house Number</label>
-                <input className="details" type="number" id="houseNumber" /><br />
-                <label>phone Number</label>
-                <input className="details" type="text" id="phoneNumber" /><br />
-                <label>email Address</label>
-                <input className="details" type="email" id="emailAddress" /><br />
-                <label>height</label>
-                <input className="details" type="number" id="height" /><br />
-                <label>Weights</label>
+            <div className="userDetails" >
+                <InputLabel>id</InputLabel>
+                <Input className="details" type="text" id="userId" />
+                <InputLabel>first Name</InputLabel>
+                <Input className="details" type="text" id="firstName" />
+                <InputLabel>last Name</InputLabel>
+                <Input className="details" type="text" id="lastName" />
+                <InputLabel>city</InputLabel>
+                <Input className="details" type="text" id="city" />
+                <InputLabel>street</InputLabel>
+                <Input className="details" type="text" id="street" />
+                <InputLabel>house Number</InputLabel>
+                <Input className="details" type="number" id="houseNumber" />
+                <InputLabel>phone Number</InputLabel>
+                <Input className="details" type="text" id="phoneNumber" />
+                <InputLabel>email Address</InputLabel>
+                <Input className="details" type="email" id="emailAddress" />
+                <InputLabel>height</InputLabel>
+                <Input className="details" type="number" id="height" />
+                <InputLabel>Weights</InputLabel>
                 <table>
                     <thead>
                         <tr>
-                            <th>date</th>
-                            <th>weight</th>
+                            <th>-date-</th>
+                            <th>-weight-</th>
                         </tr>
                     </thead>
                     <tbody id="weights"></tbody>
                 </table>
-                <label>BMI</label>
-                <input type="number" id="BMI" /><br/>
-                <input type="button" className="btnToDiary" onClick={()=>passDiary()} value="Enter to show your diary"/>
+                <InputLabel>BMI</InputLabel>
+                <Input type="number" id="BMI" /><br/>
+                <Button className="btnToDiary" onClick={()=>passDiary()} >Enter to show your diary</Button>
             </div>
         </div>
     )

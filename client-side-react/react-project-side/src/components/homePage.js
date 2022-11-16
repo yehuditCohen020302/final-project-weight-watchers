@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import userIcon from '../images/user-icon.svg';
 import '../css/homePage.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import { useHistory } from "react-router-dom";
 import {getUserById} from "../api/user"
 import { getUsers } from '../api/manager';
