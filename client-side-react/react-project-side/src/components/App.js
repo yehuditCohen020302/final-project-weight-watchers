@@ -5,7 +5,7 @@ import { BasicTable } from "./managerPage";
 import { UserPage } from "./userPage";
 import { HomePage } from "./homePage";
 import {PrimarySearchAppBar} from "./menu"
-import { UserDiary } from "./user.diary";
+import { DenseTable } from "./user.diary";
 
 export default function App() {
   return (
@@ -15,7 +15,7 @@ export default function App() {
         <Route path='/' exact> <HomePage/></Route>
         <Route path='/managerPage' ><BasicTable/></Route>
         <Route path='/userPage/:id' ><UserPage/></Route>
-        <Route path='/userPage/:id/diary' ><UserDiary/></Route>
+        <Route path='/:id/diary' ><DenseTable/></Route>
 
     </Router>
     </div>
