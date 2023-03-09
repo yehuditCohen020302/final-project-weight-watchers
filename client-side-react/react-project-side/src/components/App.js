@@ -23,12 +23,3 @@ export default function App() {
   );
 }
 
-
-/*  <Router>
-      <Routes>
-        <Route path="*" element={<h1>Don't found this page</h1>} />
-        <Route path="/" element={<HomePage />} />
-        <Route path="/managerPage" element={<ManagerPage />} />
-        <Route path="/userPage/id" element={<UserPage />} />
-      </Routes>
-    </Router>  */

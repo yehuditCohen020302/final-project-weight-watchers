@@ -40,17 +40,26 @@
 
 /*מכאן אני כתבתי: לא נגעתי בלמעלה*/
 
-.userDetails{
-  background-color:plum;
-  
 
+.divContainerUserPage{
+  text-align:center;
+  /* opacity: 0.80; */
+  background-size: cover;
+  background-image: url("../images/444\(3\).jpg");
 }
+
+.userDetails{
+ background-color:aliceblue;
+ width: 40%;
+left: 30%;
+  
+}
+
 .divContainerDiary{
   /* background-color: rgb(231, 168, 199); */
   width: 100%;
   text-align:left;
     width: 70%;/*400px*/
-    height: 100%;
     opacity: 0.85;
     position: fixed;
     left: 15%;

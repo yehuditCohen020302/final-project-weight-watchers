@@ -2,7 +2,7 @@ import React from 'react';
 import {useEffect} from 'react'
 import { useParams , useHistory} from 'react-router-dom';
 import {getUserById} from '../api/user.js'
-import { InputLabel,Input, Button } from '@mui/material';
+import { InputLabel,Input, Button ,TextField} from '@mui/material';
 
 export function UserPage(){
     
@@ -19,28 +19,27 @@ export function UserPage(){
     );
 
     return(
-        <div >
-        {/* className="divContainerUserPage" */}
+        <div className="divContainerUserPage">
             <h3 id="title">User Details:</h3>
             <div className="userDetails" >
-                <InputLabel>id</InputLabel>
-                <Input className="details" type="text" id="userId" />
+            <InputLabel>id</InputLabel>
+            <TextField id="userId"  variant="outlined" disabled/>
                 <InputLabel>first Name</InputLabel>
-                <Input className="details" type="text" id="firstName" />
+                <TextField className="details" type="text" id="firstName" disabled/>
                 <InputLabel>last Name</InputLabel>
-                <Input className="details" type="text" id="lastName" />
+                <TextField className="details" type="text" id="lastName" disabled/>
                 <InputLabel>city</InputLabel>
-                <Input className="details" type="text" id="city" />
+                <TextField className="details" type="text" id="city" disabled/>
                 <InputLabel>street</InputLabel>
-                <Input className="details" type="text" id="street" />
+                <TextField className="details" type="text" id="street" disabled/>
                 <InputLabel>house Number</InputLabel>
-                <Input className="details" type="number" id="houseNumber" />
+                <TextField className="details" type="number" id="houseNumber" disabled/>
                 <InputLabel>phone Number</InputLabel>
-                <Input className="details" type="text" id="phoneNumber" />
+                <TextField className="details" type="text" id="phoneNumber" disabled/>
                 <InputLabel>email Address</InputLabel>
-                <Input className="details" type="email" id="emailAddress" />
+                <TextField className="details" type="email" id="emailAddress" disabled/>
                 <InputLabel>height</InputLabel>
-                <Input className="details" type="number" id="height" />
+                <TextField className="details" type="number" id="height" disabled/>
                 <InputLabel>Weights</InputLabel>
                 <table>
                     <thead>
@@ -52,7 +51,7 @@ export function UserPage(){
                     <tbody id="weights"></tbody>
                 </table>
                 <InputLabel>BMI</InputLabel>
-                <Input type="number" id="BMI" /><br/>
+                <TextField type="number" id="BMI" /><br/>
                 <Button className="btnToDiary" onClick={()=>passDiary()} >Enter to show your diary</Button>
             </div>
         </div>
