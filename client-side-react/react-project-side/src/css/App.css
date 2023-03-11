@@ -40,12 +40,18 @@
 
 /*מכאן אני כתבתי: לא נגעתי בלמעלה*/
 
-.divContainerUserPage{
+.userDetails{
   background-color:plum;
-  width: 100%;
+  
 
 }
 .divContainerDiary{
-  background-color: hotpink;
+  /* background-color: rgb(231, 168, 199); */
   width: 100%;
+  text-align:left;
+    width: 70%;/*400px*/
+    height: 100%;
+    opacity: 0.85;
+    position: fixed;
+    left: 15%;
 }
