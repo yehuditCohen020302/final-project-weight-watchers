@@ -2,7 +2,7 @@ const DiaryService = require('../Services/diaryService')
 
 module.exports.getUsersDiary=async function(req, res, next) {
     try{
-       const userId = req.params.id;
+       const userId = req.params._id;
        const usersDiary=await DiaryService.getUsersDiary(userId);
        res.send(usersDiary);
     }
@@ -13,7 +13,7 @@ module.exports.getUsersDiary=async function(req, res, next) {
 
 module.exports.addNewDaySummary=async function(req, res, next) {
     try{
-        const userId=req.params.id;
+        const userId=req.params._id;
         const daySummary=req.body;
         const insertedDaySummary=await DiaryService.addNewDaySummary(userId,daySummary);
         res.send(insertedDaySummary);

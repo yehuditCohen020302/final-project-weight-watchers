@@ -14,8 +14,8 @@ export default function App() {
         <Route path="" ><PrimarySearchAppBar/></Route>
         <Route path='/' exact> <HomePage/></Route>
         <Route path='/managerPage' ><BasicTable/></Route>
-        <Route path='/userPage/:id' ><UserPage/></Route>
-        <Route path='/:id/diary' ><DenseTable/></Route>
+        <Route path='/userPage/:_id' ><UserPage/></Route>
+        <Route path='/:_id/diary' ><DenseTable/></Route>
 
     </Router>
     </div>

@@ -25,11 +25,11 @@ const rows = [
 ];
 
 export function DenseTable() {
-    const {id} = useParams();
+    const {_id} = useParams();
   return (
     <div className='divContainerDiary'>
         <h2>Your Diary: </h2>
-        <Button onClick={()=>getUserDiary(id)}>click to load your diary</Button>
+        <Button onClick={()=>getUserDiary(_id)}>Click to load your diary</Button>
         
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
@@ -66,12 +66,12 @@ export function DenseTable() {
 
 export function UserDiary()
 { 
-    const {id} = useParams();
+    const {_id} = useParams();
     console.log('in userDiary');
     return (
         <div className='divContainerDiary' >
             <h1>your diary: </h1>
-            <input type="button" value="click to load your diary" onClick={()=>getUserDiary(id)}/>
+            <input type="button" value="click to load your diary" onClick={()=>getUserDiary(_id)}/>
         </div>
     );
 

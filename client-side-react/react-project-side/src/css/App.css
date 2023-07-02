@@ -39,11 +39,11 @@
 
 
 /*מכאן אני כתבתי: לא נגעתי בלמעלה*/
-
-.userDetails{
-  background-color:plum;
+*{
+ 
+}
+#card{
   
-
 }
 .divContainerDiary{
   /* background-color: rgb(231, 168, 199); */

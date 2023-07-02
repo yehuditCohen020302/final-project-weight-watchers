@@ -3,11 +3,12 @@ const baseUrl='http://localhost:3000/';
 let currentUser;
 
 
-export function getUserById(id) {
-
-    fetch(`${baseUrl}users/${id}`)
+export function getUserById(_id) {
+  
+    fetch(`${baseUrl}users/${_id}`)
       .then(response => response.json())
       .then(response=>{
+        
         currentUser=response;
         drawUserDetails(response)})
       .catch(error => console.log('error', error));
@@ -15,7 +16,8 @@ export function getUserById(id) {
 }
 
 function drawUserDetails(currentUser) {
-    document.getElementById("userId").value=currentUser.id;
+  
+    document.getElementById("userId").value=currentUser._id;
     document.getElementById("firstName").value=currentUser.firstName;
     document.getElementById("lastName").value=currentUser.lastName;
     document.getElementById("city").value=currentUser.city;
@@ -36,11 +38,12 @@ function drawUserDetails(currentUser) {
     });
 }
 
-export function getUserDiary(id) {
-  
-  fetch(`${baseUrl}users/${id}/diary`)
+export function getUserDiary(_id) {
+
+  fetch(`${baseUrl}users/${_id}/diary`)
     .then(response => response.json())
-    .then(response=> console.log(response))
+    .then(response => console.log(response))
+    .then(response=> console.log(`try to load diary `))
     .catch(error => console.log('error', error));
   
 }

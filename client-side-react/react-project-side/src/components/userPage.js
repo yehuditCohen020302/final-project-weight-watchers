@@ -1,61 +1,84 @@
-import React from 'react';
-import {useEffect} from 'react'
-import { useParams , useHistory} from 'react-router-dom';
-import {getUserById} from '../api/user.js'
-import { InputLabel,Input, Button } from '@mui/material';
+import { getUserById } from "../api/user.js";
+import {
+  FormLabel,
+  Input,
+  Table,CssBaseline,Container
+} from "@mui/material";
+import {  useEffect } from "react";
+import { useParams, useHistory } from "react-router-dom";
+import * as React from "react";
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
+import { Button, CardActionArea, CardActions } from '@mui/material';
+import TextField from "@mui/material/TextField";
 
-export function UserPage(){
-    
-    const {id} = useParams();
 
-    const history = useHistory();
+export function UserPage() {
+  const { _id } = useParams();
 
-    function passDiary(){
-        history.push(`/${id}/diary`);
-    }
+  const history = useHistory();
 
-    useEffect(() => {
-         getUserById(id);}
-    );
+  function passDiary() {
+    history.push(`/${_id}/diary`);
+  }
 
-    return(
-        <div >
-        {/* className="divContainerUserPage" */}
-            <h3 id="title">User Details:</h3>
-            <div className="userDetails" >
-                <InputLabel>id</InputLabel>
-                <Input className="details" type="text" id="userId" />
-                <InputLabel>first Name</InputLabel>
-                <Input className="details" type="text" id="firstName" />
-                <InputLabel>last Name</InputLabel>
-                <Input className="details" type="text" id="lastName" />
-                <InputLabel>city</InputLabel>
-                <Input className="details" type="text" id="city" />
-                <InputLabel>street</InputLabel>
-                <Input className="details" type="text" id="street" />
-                <InputLabel>house Number</InputLabel>
-                <Input className="details" type="number" id="houseNumber" />
-                <InputLabel>phone Number</InputLabel>
-                <Input className="details" type="text" id="phoneNumber" />
-                <InputLabel>email Address</InputLabel>
-                <Input className="details" type="email" id="emailAddress" />
-                <InputLabel>height</InputLabel>
-                <Input className="details" type="number" id="height" />
-                <InputLabel>Weights</InputLabel>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>-date-</th>
-                            <th>-weight-</th>
-                        </tr>
-                    </thead>
-                    <tbody id="weights"></tbody>
-                </table>
-                <InputLabel>BMI</InputLabel>
-                <Input type="number" id="BMI" /><br/>
-                <Button className="btnToDiary" onClick={()=>passDiary()} >Enter to show your diary</Button>
-            </div>
-        </div>
-    )
+  useEffect(() => {
+    getUserById(_id);
+  });
+
+  return (
+    <React.Fragment>
+    <CssBaseline />
+    <Container fixed>
+  
+      <Card  sx={{ maxWidth: 400 , bgcolor: '#cfe8fc', height: '100vh'}}>
+        <CardActionArea id="card">
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              User Details:
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              <FormLabel>id:</FormLabel>
+              <TextField id="userId" placeholder="userId" disabled /><br/>
+              <FormLabel>first Name:</FormLabel>
+              <TextField id="firstName" placeholder="FirstNme"  disabled/><br/>
+              <FormLabel>last Name:</FormLabel>
+              <TextField id="lastName" placeholder="LastName "  disabled/><br/>
+              <FormLabel>city:</FormLabel>
+              <TextField id="city" placeholder="city"  disabled/><br/>
+              <FormLabel>street:</FormLabel>
+              <TextField id="street" placeholder=" street"  disabled/><br/>
+              <FormLabel>house Number:</FormLabel>
+              <TextField id="houseNumber" placeholder="Email"  disabled/><br/>
+              <FormLabel>phone Number:</FormLabel>
+              <TextField id="phoneNumber" placeholder="phoneNumber"  disabled/><br/>
+              <FormLabel>email Address:</FormLabel>
+              <TextField id="emailAddress" placeholder="emailAddress"  disabled/><br/>
+              <FormLabel>height:</FormLabel>
+              <TextField id="height" placeholder="height"  disabled/>
+              <FormLabel>Weights:</FormLabel>
+              <Table>
+                <thead>
+                  <tr>
+                    <th>-date-</th>
+                    <th>-weight-</th>
+                  </tr>
+                </thead>
+                <tbody id="weights"></tbody>
+              </Table>
+              <FormLabel>BMI</FormLabel>
+              <Input type="number" id="BMI" disabled/>
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+        <CardActions>
+          <Button size="small" color="primary" className="btnToDiary" onClick={() => passDiary()} >
+            Enter to show your diary
+          </Button>
+        </CardActions>
+      </Card>
+      </Container>
+  </React.Fragment>
+  );
 }
-

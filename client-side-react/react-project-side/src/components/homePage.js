@@ -15,7 +15,6 @@ export function HomePage()
     const [email,setEmail]=useState('');
     const [password,setPassword]=useState('');
 
-
     async function signInUser(id) {
         await getUserById(id);
         history.push(`/userPage/${id}`);

@@ -5,7 +5,7 @@ const Diary = require('./diaryModel');
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const addressSchema = new Schema({
+const addressSchema = new mongoose.Schema({
     city: {
         type: String,
         min: 3
@@ -20,9 +20,9 @@ const addressSchema = new Schema({
 })
 
 
-const userSchema = new Schema({
+const userSchema = new mongoose.Schema({
     // id:{
-    //     type: Number,
+    //     type: String,
     // },
     details: {
         type: Object,
@@ -41,7 +41,7 @@ const userSchema = new Schema({
             type: String,
             minlength: 9
         },
-        email: {
+        emailAddress: {
             type: String,
             unique: true,
             required: true
@@ -55,7 +55,6 @@ const userSchema = new Schema({
         ,
         meeting: [
             {
-                
                 id: {
                     type: mongoose.Schema.Types.ObjectId,
                     ref: "Meeting"
